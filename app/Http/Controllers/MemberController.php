@@ -85,13 +85,12 @@ class MemberController extends Controller
       $imgExt = $img->getClientOriginalExtension();
       //dd($imgExt);
 
-      $imgName= htmlspecialchars($member->username .'.'.$imgExt);
+      $imgName= htmlspecialchars($member->username . time().'.'.$imgExt);
       //d($imgName);
       // can use getClientOriginalExtension() or  guessClientExtension()
 
       //use the Intervention Package
       Image::make($img)->resize(200,200)->save(public_path('/avatars/'.$imgName));
-
       $member->avatar=$imgName;
       $member->save();
       ;
