@@ -90,7 +90,7 @@ class MemberController extends Controller
       // can use getClientOriginalExtension() or  guessClientExtension()
 
       //use the Intervention Package
-      Image::make($img)->resize(200,200)->save(public_path('/avatars/'.$imgName));
+      Image::make($img)->resize(150,150)->save(public_path('/avatars/'.$imgName));
 
       $member->avatar=$imgName ;
       $member->save();
@@ -143,6 +143,8 @@ class MemberController extends Controller
      public function getMyhighestScoreMatchCompetitor(member $member)
      {
         $myHighestScoreMatch = $this->getMyhighestScoreMatch($member);
+if (  $myHighestScoreMatch) {
+
 
         if($member->id == $myHighestScoreMatch->player1){
        $competitorId = $myHighestScoreMatch->player2;
@@ -154,6 +156,7 @@ class MemberController extends Controller
          // dd($myHighestScoreMatch->player1);
 
         return $competitor = member::find($competitorId);
+        }
      }
 
 // return the upcomming matches

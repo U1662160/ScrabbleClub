@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'homeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/login','MemberController@getlogin')->name('Auth.login');
 
@@ -73,11 +73,21 @@ Route::get('lost/{member}',[
   'uses'=>'MemberController@getMyLostMatches',
   'as'=>'scores.lostMatches',
 ]);
+
+//Route to show player's page
 Route::get('/scores/{member}',[
 'uses'=>'MemberController@getMyScores',
 'as'  =>'scores.index',
 ]);
+
+// Board Route
 Route::get('/board',[
   'uses'=>'BoardController@BoardPlayers',
   'as'=>'board.index',
+]);
+
+//search results route
+Route::get('/search',[
+  'uses'=>'SearchController@getResults',
+  'as'=>'search.results',
 ]);

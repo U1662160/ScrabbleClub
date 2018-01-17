@@ -28,13 +28,14 @@
 				<li ><a href="{{route('board.index')}}">Board	</a></li>
 
     </ul>
-
-      <form class="navbar-form pull-right" role="search" action="#">
+<!-- Search form -->
+      <form class="navbar-form pull-right" role="search" action="{{route('search.results')}}">
         <div class="form-group">
-          <input type="text" name="query" class="form-control" placeholder="Search players">
+          <input type="text" id="query" name="query" class="form-control" placeholder="Search players">
         </div>
         <button type="submit" class="btn btn-default">Search</button>
       </form>
+
  	 </div>
       <ul class="nav navbar-nav navbar-right">
 		<li><a href="{{route('addPlayer')}}">New Player</a></li>
