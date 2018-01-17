@@ -4,7 +4,7 @@
 <div class="container">
 
 
-@if(!$players)
+@if(!$players->count())
 <p class="help-block"> Sorry, No results found.   </p>
 @else
 @foreach($players as $player)
