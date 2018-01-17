@@ -90,9 +90,9 @@ class MemberController extends Controller
       // can use getClientOriginalExtension() or  guessClientExtension()
 
       //use the Intervention Package
-      Image::make($img)->resize(150,150)->save(public_path('/avatars/'.$imgName));
+      Image::make($img)->resize(200,200)->save(public_path('/avatars/'.$imgName));
 
-      $member->avatar=$imgName ;
+      $member->avatar=$imgName;
       $member->save();
       ;
       //dd($member->avatar);
